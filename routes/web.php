@@ -23,6 +23,7 @@ use App\Http\Controllers\AdminLoginHistoryController;
 use App\Http\Controllers\AdminPermissionRoleController;
 use App\Http\Controllers\ForcePasswordChangeController;
 use App\Http\Controllers\AdminPersonalisationController;
+use App\Http\Controllers\DiseminasiController;
 
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/', [PageController::class, 'home'])->name('home');
@@ -78,6 +79,8 @@ Route::middleware(['web', 'auth', 'auth.session'])->group(function () {
 
         // Chart Routes
         Route::get('charts', [ChartController::class, 'index'])->name('chart.index');
+
+        Route::get('/diseminasi', [DiseminasiController::class, 'index'])->name('diseminasi.index');
 
         // Protected Routes requiring 2FA
         Route::middleware([/* 'require.two.factor'*/])->group(function () {
